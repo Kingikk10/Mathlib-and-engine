@@ -9,7 +9,7 @@ public:
 	float speed, turnspeed;
 
 	PlayerController() : Forward('W'),  Left('A'), Right('D'),
-	speed(100), turnspeed(10) {}
+	speed(100), turnspeed(5)  {}
 
 
 };

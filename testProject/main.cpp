@@ -79,7 +79,7 @@ void main()
 
 	Asset::instance().loadTexture("Ship", "../textures/car.jpg");
 
-	Factory::makePlayer({ 0,0 });
+	Factory::makePlayer({ 400,300 });
 
 
 

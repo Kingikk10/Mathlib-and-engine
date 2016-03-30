@@ -112,3 +112,35 @@ inline Vec2 Vec2::normal() const
 	return *this / magnitude();
 
 }
+
+
+//inline Vec2 operator<(float &lhs, const Vec2 &rhs)
+//{
+//	return float lhs;
+//}
+
+
+// Vector clamp clamps the x's and the y's separately
+// min and a max that finds the min of x's and y's separately
+
+inline Vec2 Min(const Vec2 &a, const Vec2 &b)
+{
+	return Vec2{ fminf(a.x, b.x), fminf(a.y, b.y) };
+}
+
+
+inline Vec2 Max(const Vec2 &a, const Vec2 &b)
+{
+	return Vec2{ fmaxf(a.x, b.x), fmaxf(a.y, b.y) };
+}
+
+inline Vec2 Clamp(const Vec2 &a, const Vec2 &min, const Vec2 &max)
+{
+
+	return Max(min, Min(a, max));
+	//if (a.x < min) { return min; }
+	//if (a.x < max) { return max; }
+	//if (a.x > min && a.x < max) { return a; }
+}
+
+

@@ -27,6 +27,8 @@ struct AABB {
 };
 
 
+CollisionData iTest_circleVSaabb(const Circle &a, const AABB &b);
+
 CollisionData iTest_circle(const Circle &a, const Circle	&b);
 
 CollisionData iTest_aabb(const AABB   &a, const AABB	&b);

@@ -30,6 +30,24 @@ CollisionData iTest_aabb(const AABB &a, const AABB &b)
 	return cdx.PenetrationDepth < cdy.PenetrationDepth ? cdx : cdy;
 }
 
+CollisionData iTest_circleVSaabb(const Circle &a, const AABB &b)
+{
+	CollisionData cd;
+	Vec2 pc = Clamp(a.position, b.min, b.max);
+
+	cd.isOverlap = dot(a.position - pc, a.position - pc) <= (a.r * a.r);
+
+	return cd;
+}
+CollisionData iTest_rayVSaabb(const Ray &a, const AABB &b)
+{
+
+
+
+
+}
+
+
 Vec2 AABB::min() const
 {
     return position - halfextents;

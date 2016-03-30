@@ -65,14 +65,32 @@ inline Vec3 operator*(const Vec3 &lhs, float &rhs)
 	return Vec3(lhs.x * rhs, lhs.y * rhs, lhs.z * rhs);
 }
 
+inline Vec3 operator*(float &lhs, const Vec3 &rhs)
+{
+	return rhs * lhs;
+}
 
+inline Vec3 Lerp(const Vec3 &a, const Vec3 &b, float t)
+{
+	return a + t *(a - b);
 
+}
 
 inline float dot(const Vec3 &lhs, const Vec3 &rhs)
 {
 	return lhs.x * rhs.x + rhs.y * lhs.y + rhs.z*lhs.z;
 }
 
+inline Vec3 Min(const Vec3 &a, const Vec3 &b)
+{
+	return Vec3{ fminf(a.x, b.x), fminf(a.y, b.y), fminf(a.z, b.z) };
+}
+
+
+inline Vec3 Max(const Vec3 &a, const Vec3 &b)
+{
+	return Vec3{ fmaxf(a.x, b.x), fmaxf(a.y, b.y),  fminf(a.z, b.z) };
+}
 
 inline bool operator==(const Vec3 &lhs, const Vec3 &rhs)
 {
@@ -83,6 +101,10 @@ inline bool operator==(const Vec3 &lhs, const Vec3 &rhs)
 		rhs.z - FLT_EPSILON < lhs.z && lhs.z < rhs.z + FLT_EPSILON;
 
 	
+}
+inline Vec3 perp(const Vec3  &a)
+{
+	return Vec3(-a.y, a.x, a.z);
 }
 
 inline Vec3 Vec3::normal() const

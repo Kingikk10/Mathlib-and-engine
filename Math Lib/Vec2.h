@@ -72,6 +72,11 @@ inline Vec2 operator*(const Vec2 &lhs, float &rhs)
 	return Vec2(lhs.x * rhs, lhs.y * rhs);
 }
 
+inline Vec2 operator*(float &lhs, const Vec2 &rhs)
+{
+	return rhs * lhs;
+}
+
 //inline Vec2 operator*(const Vec2 &lhs, float &rhs)
 //{
 //	return Vec2(lhs.x * rhs, lhs.y * rhs);
@@ -82,6 +87,11 @@ inline float dot(const Vec2 &lhs, const Vec2 &rhs)
 	return lhs.x * rhs.x + rhs.y * lhs.y;
 }
 
+inline Vec2 Lerp(const Vec2 &a, const Vec2 &b, float t )
+{
+	return a + t *(a - b);
+
+}
 
 inline bool operator==(const Vec2 &lhs, const Vec2 &rhs)
 {
